@@ -7,6 +7,9 @@ import App from './App';
 import MainArea from './components/MainArea/MainArea';
 import Menu1 from './pages/Menu1/Menu1';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import MainPage from './pages/MainPage/MainPage';
+import SettingPage from './pages/SettingPage/SettingPage';
+import Menu2 from './pages/Menu2/Menu2';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: '/',
-        element: <MainArea />,
+        element: <MainPage />,
       },
       {
         path: '/menu1',
@@ -25,13 +28,18 @@ const router = createBrowserRouter([
       },
       {
         path: '/menu2',
-        element: <h1>menu2</h1>,
+        element: <Menu2 />,
       },
       {
         path: '/menu3',
         element: <h1>menu3</h1>,
       },
     ],
+  },
+  {
+    path: '/setting',
+    element: <SettingPage />,
+    errorElement: <ErrorPage />,
   },
 ]);
 

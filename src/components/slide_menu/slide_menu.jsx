@@ -19,36 +19,35 @@ const SlideMenu = () => {
             ></Avatar>
           </h1>
 
+          {/* Menu List */}
           <MenuList className={styles.menuList} variant='text'>
-            <MenuItem textAlign='center' align='center'>
-              <Link to='/menu1' />
-              <span className={styles.item}>메뉴</span>
-            </MenuItem>
-            <MenuItem align='center' className={styles.item}>
-              <span className={styles.item}>메뉴</span>
-            </MenuItem>
-            <MenuItem align='center'>
-              <span className={styles.item}>메뉴</span>
-            </MenuItem>
+            <Link to='/menu1'>
+              <MenuItem textAlign='center' align='center'>
+                <span className={styles.item}>메뉴1</span>
+              </MenuItem>
+            </Link>
+
+            <Link to='/menu2'>
+              <MenuItem align='center' className={styles.item}>
+                <span className={styles.item}>메뉴2</span>
+              </MenuItem>
+            </Link>
+
+            <Link to='/menu3'>
+              <MenuItem align='center'>
+                <span className={styles.item}>메뉴3</span>
+              </MenuItem>
+            </Link>
           </MenuList>
-          {/* 여기에 아래 로직 작성 */}
+          {/* Footer Menu */}
+          <MenuList className={styles.footerMenu}>
+            <Link to='/setting'>
+              <MenuItem align='center'>
+                <span className={styles.item}>Setting</span>
+              </MenuItem>
+            </Link>
+          </MenuList>
         </Paper>
-
-        {/* <nav className={styles.menu_list_wrapper}>
-          <ul className={styles.menu_list}>
-            <li className={styles.menu_item}>메뉴1</li>
-            <li className={styles.menu_item}>메뉴2</li>
-            <li className={styles.menu_item}>메뉴3</li>
-            <li className={styles.menu_item}>메뉴4</li>
-          </ul>
-        </nav>
-
-        <nav className={styles.footer_menu_wrapper}>
-          <ul className={styles.menu_list}>
-            <li className={styles.menu_item}>Setting</li>
-            <li className={styles.menu_item}>sign out</li>
-          </ul>
-        </nav> */}
       </aside>
     </>
   );

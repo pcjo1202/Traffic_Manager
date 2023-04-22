@@ -1,12 +1,12 @@
 import React from 'react';
 import MainArea from '../../components/MainArea/MainArea';
 
-const Menu1 = () => {
+const Menu2 = () => {
   return (
     <MainArea>
-      <h1>Menu1</h1>
+      <h1>Menu2</h1>
     </MainArea>
   );
 };
 
-export default Menu1;
+export default Menu2;

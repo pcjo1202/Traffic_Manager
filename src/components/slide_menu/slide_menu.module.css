@@ -2,12 +2,22 @@
   background-color: #ffffff41;
   width: 19rem;
   height: 100%;
+
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
 }
 
-.logo {
+.logo_box {
+  width: 100%;
+  height: 100%;
+
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  width: 100%;
 }
 
 .menuList {}
@@ -19,4 +29,9 @@
 
   width: 100%;
   font-size: 1.5rem;
+}
+
+.signOut {
+  color: red;
+  font-weight: bold;
 }

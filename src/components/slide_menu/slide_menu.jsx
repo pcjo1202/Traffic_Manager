@@ -24,32 +24,33 @@ const SlideMenu = () => {
           {/* Menu List */}
           <MenuList className={styles.menuList}>
             <Link to='/menu1'>
-              <MenuItem align='center'>
+              <MenuItem>
                 <span className={styles.item}>메뉴1</span>
               </MenuItem>
             </Link>
 
             <Link to='/menu2'>
-              <MenuItem align='center' className={styles.item}>
+              <MenuItem className={styles.item}>
                 <span className={styles.item}>메뉴2</span>
               </MenuItem>
             </Link>
 
             <Link to='/menu3'>
-              <MenuItem align='center'>
+              <MenuItem>
                 <span className={styles.item}>메뉴3</span>
               </MenuItem>
             </Link>
           </MenuList>
+
           {/* Footer Menu */}
           <MenuList className={styles.footerMenu}>
             <Link to='/setting'>
-              <MenuItem align='center'>
+              <MenuItem>
                 <span className={styles.item}>Setting</span>
               </MenuItem>
             </Link>
 
-            <MenuItem align='center'>
+            <MenuItem onClick={handleSignOut}>
               <span className={`${styles.item} ${styles.signOut}`}>
                 Sign out
               </span>
@@ -57,10 +58,8 @@ const SlideMenu = () => {
 
             {/* 임시 버튼 -> 마이페이지에 넣을 예정 */}
             <Link to='/mypage'>
-              <MenuItem align='center'>
-                <span className={styles.item} onClick={handleSignOut}>
-                  mypage
-                </span>
+              <MenuItem>
+                <span className={styles.item}>mypage</span>
               </MenuItem>
             </Link>
           </MenuList>

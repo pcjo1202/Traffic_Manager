@@ -16,7 +16,13 @@
 .mainSection {
   flex: 1;
   padding: 1rem;
+}
+
+.main_wrapper {
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 1rem;
 }

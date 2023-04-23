@@ -17,8 +17,10 @@ function App() {
     <div className={styles.container}>
       <SlideMenu />
       <section className={styles.mainSection}>
-        <Outlet />
-        {location.pathname !== '/mypage' && <StatusTraffic />}
+        <main className={styles.main_wrapper}>
+          <Outlet />
+          {location.pathname !== '/mypage' && <StatusTraffic />}
+        </main>
       </section>
     </div>
   );

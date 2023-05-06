@@ -23,6 +23,15 @@
   border-radius: 1rem;
   overflow: hidden;
 
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+}
+
+.activeStyle {
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
+
+.deactiveStyle {
+  background-color: blue;
 }

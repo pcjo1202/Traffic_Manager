@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './App.module.css';
 import SlideMenu from './components/slide_menu/slide_menu';
-import { Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import StatusTraffic from './components/StatusTraffic/StatusTraffic';
 
 function App() {
@@ -19,6 +19,8 @@ function App() {
       <section className={styles.mainSection}>
         <main className={styles.main_wrapper}>
           <Outlet />
+          {/* <StatusTraffic /> */}
+
           {location.pathname !== '/mypage' && <StatusTraffic />}
         </main>
       </section>

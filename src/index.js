@@ -32,18 +32,18 @@ const router = createBrowserRouter([
       },
       {
         path: '/menu3',
-        element: <h1>menu3</h1>,
+        element: <Menu2 />,
       },
       {
         path: '/mypage',
         element: <MyPage />,
       },
+      {
+        path: '/setting',
+        element: <SettingPage />,
+        errorElement: <ErrorPage />,
+      },
     ],
-  },
-  {
-    path: '/setting',
-    element: <SettingPage />,
-    errorElement: <ErrorPage />,
   },
 ]);
 

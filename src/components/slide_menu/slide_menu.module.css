@@ -20,6 +20,10 @@
   width: 100%;
 }
 
+.logo>img {
+  width: 100%;
+}
+
 .menuList {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ import styles from './slide_menu.module.css';
 import logo from '../../images/test.jpeg';
 import { MenuItem, MenuList, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const SlideMenu = () => {
   const handleSignOut = () => {
@@ -54,11 +55,19 @@ const SlideMenu = () => {
           <MenuList className={styles.menuList}>
             {menuItem.map((item, index) => {
               return (
-                <Link to={item.path} key={index}>
+                <NavLink
+                  to={item.path}
+                  key={index}
+                  className={({ isActive }) => {
+                    return isActive
+                      ? `${styles.activeStyle}`
+                      : `${styles.deactiveStyle}`;
+                  }}
+                >
                   <MenuItem>
                     <span className={styles.item}>{item.name}</span>
                   </MenuItem>
-                </Link>
+                </NavLink>
               );
             })}
           </MenuList>
@@ -67,11 +76,19 @@ const SlideMenu = () => {
           <MenuList className={styles.footerMenu}>
             {footerItem.map((item, index) => {
               return (
-                <Link to={item.path} key={index}>
+                <NavLink
+                  to={item.path}
+                  key={index}
+                  className={({ isActive }) => {
+                    return isActive
+                      ? `${styles.activeStyle}`
+                      : `${styles.deactiveStyle}`;
+                  }}
+                >
                   <MenuItem>
                     <span className={styles.item}>{item.name}</span>
                   </MenuItem>
-                </Link>
+                </NavLink>
               );
             })}
             <MenuItem onClick={handleSignOut}>

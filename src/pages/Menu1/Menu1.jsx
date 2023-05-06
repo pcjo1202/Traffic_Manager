@@ -1,10 +1,11 @@
 import React from 'react';
 import MainArea from '../../components/MainArea/MainArea';
+import { Paper } from '@mui/material';
 
 const Menu1 = () => {
   return (
     <MainArea>
-      <h1>Menu1</h1>
+      <Paper elevation={3}>dd</Paper>
     </MainArea>
   );
 };

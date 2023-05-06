@@ -1,0 +1,12 @@
+.main_container {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 1rem;
+}
+
+.section_box {
+  width: 15rem;
+  height: 15rem;
+  background-color: #ffffff87;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './slide_menu.module.css';
 
-import logo from '../../images/test.jpeg';
+import logo from '../../images/logo.png';
 import { MenuItem, MenuList, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -14,23 +14,19 @@ const SlideMenu = () => {
   const menuItem = [
     {
       path: '/',
-      name: 'menu1',
+      name: '트래픽 현황 조회',
     },
     {
-      path: '/menu2',
-      name: 'menu2',
-    },
-    {
-      path: '/menu3',
-      name: 'menu3',
+      path: '/directions',
+      name: '길찾기',
     },
   ];
 
   const footerItem = [
-    {
-      path: '/setting',
-      name: 'setting',
-    },
+    // {
+    //   path: '/setting',
+    //   name: 'setting',
+    // },
     {
       path: '/mypage',
       name: 'mypage',

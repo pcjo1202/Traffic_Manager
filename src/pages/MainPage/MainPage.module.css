@@ -10,3 +10,17 @@
   height: 15rem;
   background-color: #ffffff87;
 }
+
+.account_box {
+  /* flex: 0 0 10rem; */
+  align-self: flex-end;
+}
+
+.account_icon {
+  transition: all 200ms ease;
+}
+
+.account_icon:hover {
+  cursor: pointer;
+  color: #8f8f8f;
+}

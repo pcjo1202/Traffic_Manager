@@ -4,10 +4,12 @@ import styles from './MyPage.module.css';
 import MainArea from '../../components/MainArea/MainArea';
 
 import profile from '../../images/test.jpeg';
+import Header from '../../components/Header/Header';
 
 const MyPage = () => {
   return (
     <MainArea>
+      <Header title='마이페이지' />
       <section className={styles.profile_wrapper}>
         <div className={styles.thumnail_wrapper}>
           <img className={styles.thumnail} src={profile} alt='profile' />

@@ -4,7 +4,7 @@ import MainArea from '../../components/MainArea/MainArea';
 const Menu2 = () => {
   return (
     <MainArea>
-      <h1>Menu2</h1>
+      <h1>directions</h1>
     </MainArea>
   );
 };

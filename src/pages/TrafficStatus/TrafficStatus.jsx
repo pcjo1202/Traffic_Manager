@@ -2,7 +2,7 @@ import React from 'react';
 import MainArea from '../../components/MainArea/MainArea';
 import { Paper } from '@mui/material';
 
-const Menu1 = () => {
+const TrafficStatius = () => {
   return (
     <MainArea>
       <Paper elevation={3}>dd</Paper>
@@ -10,4 +10,4 @@ const Menu1 = () => {
   );
 };
 
-export default Menu1;
+export default TrafficStatius;

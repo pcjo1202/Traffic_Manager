@@ -4,11 +4,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 //
-import Menu1 from './pages/Menu1/Menu1';
+import TrafficStatus from './pages/TrafficStatus/TrafficStatus';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import MainPage from './pages/MainPage/MainPage';
 import SettingPage from './pages/SettingPage/SettingPage';
-import Menu2 from './pages/Menu2/Menu2';
+import Directions from './pages/Directions/Directions';
 import MyPage from './pages/MyPage/MyPage';
 
 const router = createBrowserRouter([
@@ -23,16 +23,12 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: '/menu1',
-        element: <Menu1 />,
+        path: '/trafficStatus',
+        element: <TrafficStatus />,
       },
       {
-        path: '/menu2',
-        element: <Menu2 />,
-      },
-      {
-        path: '/menu3',
-        element: <Menu2 />,
+        path: '/directions',
+        element: <Directions />,
       },
       {
         path: '/mypage',
@@ -44,6 +40,16 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <h1>로그인 페이지</h1>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/join',
+    element: <h1>회원가입 페이지</h1>,
+    errorElement: <ErrorPage />,
   },
 ]);
 

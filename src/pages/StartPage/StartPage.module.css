@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+.App_main {
+  text-align: center;
+
+}
+
+.App_logo {
+  z-index: 2;
+  height: 25vmin;
+}

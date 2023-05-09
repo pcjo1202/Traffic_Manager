@@ -11,6 +11,8 @@ import SettingPage from './pages/SettingPage/SettingPage';
 import Directions from './pages/Directions/Directions';
 import MyPage from './pages/MyPage/MyPage';
 import { Kakao } from './services/kakao';
+import StartPage from './pages/StartPage/StartPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 const router = createBrowserRouter([
   {
@@ -43,8 +45,13 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: '/start',
+    element: <StartPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: '/login',
-    element: <h1>로그인 페이지</h1>,
+    element: <LoginPage />,
     errorElement: <ErrorPage />,
   },
   {

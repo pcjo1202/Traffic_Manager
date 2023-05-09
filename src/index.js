@@ -10,6 +10,7 @@ import MainPage from './pages/MainPage/MainPage';
 import SettingPage from './pages/SettingPage/SettingPage';
 import Directions from './pages/Directions/Directions';
 import MyPage from './pages/MyPage/MyPage';
+import { Kakao } from './services/kakao';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
 ]);
+
+const kakao = new Kakao();
+
+kakao.getMap();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

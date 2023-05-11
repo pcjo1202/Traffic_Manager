@@ -10,14 +10,17 @@ import MainPage from './pages/MainPage/MainPage';
 import SettingPage from './pages/SettingPage/SettingPage';
 import Directions from './pages/Directions/Directions';
 import MyPage from './pages/MyPage/MyPage';
-import { Kakao } from './services/kakao';
 import StartPage from './pages/StartPage/StartPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import ResisterPage from './pages/ResisterPage/ResisterPage';
+import AuthApi from './services/authApi';
+
+const Auth = new AuthApi();
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <App Auth={Auth} />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -51,19 +54,15 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <LoginPage Auth={Auth} />,
     errorElement: <ErrorPage />,
   },
   {
     path: '/join',
-    element: <h1>회원가입 페이지</h1>,
+    element: <ResisterPage Auth={Auth} />,
     errorElement: <ErrorPage />,
   },
 ]);
-
-const kakao = new Kakao();
-
-kakao.getMap();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

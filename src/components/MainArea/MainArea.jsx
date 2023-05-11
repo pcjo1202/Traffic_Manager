@@ -4,7 +4,7 @@ import styles from './MainArea.module.css';
 const MainArea = ({ children, name }) => {
   const ActiveStyle = { flex: '0 0 25%', height: '100%' };
 
-  console.log(name);
+  // console.log(name);
   return (
     <>
       <div

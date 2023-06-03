@@ -1,31 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import styles from './LoginPage.module.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const LoginPage = ({ Auth }) => {
-  // const [inputId, setInputId] = useState('');
-  // const [inputPw, setInputPw] = useState('');
+  const [id, setId] = useState('');
+  const [pwd, setPwd] = useState('');
+  const navigate = useNavigate();
 
-  // input data 의 변화가 있을 때마다 value 값을 변경해서 useState 해준다
-  const handleInputId = (e) => {
-    // setInputId(e.target.value);
-  };
+  useEffect(() => {
+    // Auth.login('test', 'test123!');
+  }, []);
 
-  const handleInputPw = (e) => {
-    // setInputPw(e.target.value);
-  };
   // login 버튼 클릭 이벤트
-  const onClickLogin = () => {
-    // console.log('click login');
-    // console.log('ID : ', inputId);
-    // console.log('PW : ', inputPw);
+  const handleLogin = async (e) => {
+    Auth.login(id, pwd);
+
+    navigate('/');
   };
 
   return (
-    <form className={styles.fr}>
+    <form className={styles.fr} onSubmit={handleLogin}>
       <div>
         <h1>Login</h1>
         <div>
-          <section class={styles.login_form}>
+          <section className={styles.login_form}>
             <form>
               <div className={styles.int_area}>
                 <label htmlFor='input_id' placeholder='ID'>
@@ -35,7 +33,7 @@ const LoginPage = ({ Auth }) => {
                   type='text'
                   name='input_id'
                   // value={inputId}
-                  onChange={handleInputId}
+                  onChange={(e) => setId(e.target.value)}
                 />
               </div>
               <div className={styles.int_area}>
@@ -46,20 +44,20 @@ const LoginPage = ({ Auth }) => {
                   type='password'
                   name='input_pw'
                   // value={inputPw}
-                  onChange={handleInputPw}
+                  onChange={(e) => setPwd(e.target.value)}
                 />
               </div>
               <div>
                 <button
                   className={styles.btn}
                   type='button'
-                  onClick={onClickLogin}
+                  onClick={handleLogin}
                 >
                   Login
                 </button>
               </div>
             </form>
-            <div class={styles.caption}>{}</div>
+            <div className={styles.caption}>{}</div>
           </section>
         </div>
       </div>

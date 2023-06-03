@@ -12,22 +12,35 @@ class AuthApi {
   }
 
   // POST , 서버에 로그인 시
-  login(userId, pwd) {
-    const url = '/api/users/login';
+  async login(userId, pwd) {
+    console.log('로그인 시도');
+    try {
+      const url = '/api/users/login';
 
-    const data = {
-      id: userId,
-      pw: pwd,
-    };
+      const data = {
+        id: userId,
+        pw: pwd,
+      };
 
-    const config = { 'Content-Type': 'application/json' };
+      const config = { 'Content-Type': 'application/json' };
 
-    axios
-      .post(url, data, config)
-      .then(console.log)
-      //인증 성공시: 인증토큰을 전달 받을 듯 이걸 세션이나 쿠키에 저장하면 될듯
-      //인증 실패시: 에러 문구 전달??
-      .catch(console.log);
+      const response = await axios.post(url, data, config);
+
+      console.log(response);
+
+      if (response.status === 200) {
+        //로그인 성공시
+        console.log('성공');
+        const token = response.headers.authorization;
+
+        //성공시 토큰 저장
+        localStorage.setItem('authToken', token);
+      }
+    } catch (error) {
+      alert(error.response.data['msg']);
+      console.error(error.response.data);
+      // 로그인 실패 응답 데이터
+    }
   }
 
   join(email, name, userId, pwd) {
@@ -50,18 +63,20 @@ class AuthApi {
 
   logout() {
     //세션이나 쿠키에 저장되어있는 정보를 삭제함
+    localStorage.removeItem('authToken');
   }
 
   // 세션에 저장되어있는 토큰을 전달하여, 해당 유저에 대한 정보를 가져온다.
-  getUserId(token) {
+  async getUserId(token) {
     const url = '/api/users/info';
 
     const config = { 'Content-Type': 'application/json' };
 
-    axios
-      .get(url, config) //
-      .then(console.log)
-      .catch(console.log);
+    const response = await axios.get(url, config);
+
+    console.log(response);
+
+    // return;
   }
 }
 

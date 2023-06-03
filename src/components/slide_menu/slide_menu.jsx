@@ -3,12 +3,16 @@ import styles from './slide_menu.module.css';
 
 import logo from '../../images/logo.png';
 import { MenuItem, MenuList, Paper } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
-const SlideMenu = () => {
-  const handleSignOut = () => {
+const SlideMenu = ({ Auth }) => {
+  const handleSignOut = (e) => {
     console.log('로그아웃');
+    e.preventDefault();
+
+    Auth.logout();
+    window.location.reload();
   };
 
   const menuItem = [

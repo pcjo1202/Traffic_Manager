@@ -67,12 +67,14 @@ class AuthApi {
   }
 
   // 세션에 저장되어있는 토큰을 전달하여, 해당 유저에 대한 정보를 가져온다.
-  async getUserId(token) {
+  async getUserInfo(pwd) {
     const url = '/api/users/info';
 
-    const config = { 'Content-Type': 'application/json' };
+    const data = {
+      pw: pwd,
+    };
 
-    const response = await axios.get(url, config);
+    const response = await axios.get(url, data);
 
     console.log(response);
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainArea from '../../components/MainArea/MainArea';
 import styles from './MainPage.module.css';
 import { Paper } from '@mui/material';
@@ -7,11 +7,42 @@ import { ManageAccountsOutlined } from '@mui/icons-material';
 import { Search } from '@mui/icons-material';
 import { MyLocation } from '@mui/icons-material';
 
-const MainPage = () => {
-  const [location, setLocation] = useState('');
+const MainPage = ({ Direct }) => {
+  const [location, setLocation] = useState({ x: null, y: null });
+  const [nearData, setNearData] = useState();
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const data = {
+        err: 0,
+        x: position.coords.latitude,
+        y: position.coords.longitude,
+      };
+
+      setLocation((prev) => {
+        let newData = { ...prev };
+        newData = data;
+        return newData;
+      });
+    });
+
+    console.log('헤헤');
+    return () => location;
+    // Direct.nearby(location.x, location.y);
+  }, []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (location) {
+      Direct.nearby(location.x, location.y) //
+        .then((data) => {
+          setNearData(data);
+        });
+    }
+  }, [location]);
 
   const handleChange = (value) => {
-    setLocation(value);
+    // setNearData()
   };
 
   return (
@@ -34,7 +65,9 @@ const MainPage = () => {
             <div className={styles.myLocation_wrapper}>
               <div className={styles.myLocation}>
                 <MyLocation />
-                <p className={styles.myLocation_info}>강원도 원주시 흥업면</p>
+                <p
+                  className={styles.myLocation_info}
+                >{`${location.x}, ${location.y}`}</p>
               </div>
 
               <div className={styles.searchBar}>
@@ -42,7 +75,7 @@ const MainPage = () => {
                 <input
                   className={styles.search_input}
                   placeholder='위치 검색'
-                  value={location}
+                  // value={location}
                   onChange={(event) => {
                     event.preventDefault();
                     handleChange(event.target.value);
@@ -64,40 +97,50 @@ const MainPage = () => {
                   <h1>버스</h1>
                   <div className={styles.info_rank}>
                     <ul className={styles.rank_list}>
-                      {
-                        //반복문으로 list 작성
-                        // rankList.foreach((item) => {
-                        //   return (
-                        //     <li className={styles.rank_item}>
-                        //       <span className={styles.number}>item.number</span>
-                        //       <div className={styles.name}>item.name</div>
-                        //       <div className={styles.status}>item.status</div>
-                        //     </li>
-                        //   );
-                        // })
-                      }
-                      <li className={styles.rank_item}>
-                        <span className={styles.number}>1</span>
-                        <div className={styles.name}>지하철역 이름</div>
-                        <div className={styles.status}>상태</div>
-                      </li>
-                      <li className={styles.rank_item}>
-                        <span className={styles.number}>1</span>
-                        <div className={styles.name}>지하철역 이름</div>
-                        <div className={styles.status}>상태</div>
-                      </li>
-                      <li className={styles.rank_item}>
-                        <span className={styles.number}>1</span>
-                        <div className={styles.name}>지하철역 이름</div>
-                        <div className={styles.status}>상태</div>
-                      </li>
+                      {nearData &&
+                        nearData.bus.map((item, index) => {
+                          if (index < 11) {
+                            return (
+                              <li key={index} className={styles.rank_item}>
+                                <span className={styles.number}>
+                                  {index + 1}
+                                </span>
+                                <div className={styles.name}>{item.busNo}</div>
+                                <div className={styles.status}>
+                                  {item.traffic}
+                                </div>
+                              </li>
+                            );
+                          }
+                        })}
                     </ul>
                   </div>
                 </div>
 
                 <div className={`${styles.info_box} ${styles.subway_info}`}>
                   <h1>지하철</h1>
-                  <div className={styles.info_rank}></div>
+                  <div className={styles.info_rank}>
+                    <ul className={styles.rank_list}>
+                      {nearData &&
+                        nearData.subway.map((item, index) => {
+                          if (index < 11) {
+                            return (
+                              <li key={index} className={styles.rank_item}>
+                                <span className={styles.number}>
+                                  {index + 1}
+                                </span>
+                                <div className={styles.name}>
+                                  {item.stationName}
+                                </div>
+                                <div className={styles.status}>
+                                  {item.upline}
+                                </div>
+                              </li>
+                            );
+                          }
+                        })}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

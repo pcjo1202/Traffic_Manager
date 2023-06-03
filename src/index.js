@@ -14,8 +14,10 @@ import StartPage from './pages/StartPage/StartPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import ResisterPage from './pages/ResisterPage/ResisterPage';
 import AuthApi from './services/authApi';
+import DirectionsAPI from './services/directionsAPI';
 
 const Auth = new AuthApi();
+const Direct = new DirectionsAPI();
 
 const router = createBrowserRouter([
   {
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: '/',
-        element: <MainPage />,
+        element: <MainPage Direct={Direct} />,
       },
       {
         path: '/trafficStatus',
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/mypage',
-        element: <MyPage />,
+        element: <MyPage Auth={Auth} />,
       },
       {
         path: '/setting',

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class Directions {
   //뭘까
-  search(sx, sy, ex, ey) {
+  async search(sx, sy, ex, ey) {
     const url = '/api/check/searchPath';
 
     const config = { 'Content-Type': 'application/json' };
@@ -14,10 +14,9 @@ class Directions {
       ey: ey,
     };
 
-    axios
-      .post(url, data, config) //
-      .then(console.log) //아마 전달 되는 값은 없을 듯
-      .catch(console.log);
+    const response = await axios.post(url, data, config); //
+
+    console.log(response);
   }
 
   /**
@@ -57,19 +56,16 @@ class Directions {
   }
 
   //현재 위치 250안에 위치한 버스정류장 ,지하철역 혼잡도
-  nearby(x, y) {
+  async nearby(x, y) {
     const url = '/api/check/nearby';
 
     const config = { 'Content-Type': 'application/json' };
 
-    const data = {
-      name: '', //검색할 정류장 이름
-    };
+    const response = await axios.get(url, config);
+    const bus = await response.data.Bus;
+    const subway = await response.data.Subway;
 
-    axios
-      .get(url, data, config) //
-      .then(console.log) //아마 전달 되는 값은 없을 듯
-      .catch(console.log);
+    return { bus, subway };
   }
 }
 

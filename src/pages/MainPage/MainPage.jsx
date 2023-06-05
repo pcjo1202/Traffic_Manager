@@ -41,8 +41,12 @@ const MainPage = ({ Direct }) => {
     }
   }, [location]);
 
-  const handleChange = (value) => {
-    // setNearData()
+  const handleChange = (e) => {
+    e.preventDefault();
+    const value = e.target.lastChild.value;
+    // console.log(value);
+    alert(`준비중입니다 ${value}`);
+    e.target.lastChild.value = null;
   };
 
   return (
@@ -70,18 +74,18 @@ const MainPage = ({ Direct }) => {
                 >{`${location.x}, ${location.y}`}</p>
               </div>
 
-              <div className={styles.searchBar}>
+              <form className={styles.searchBar} onSubmit={handleChange}>
                 <Search className={styles.search_icon} />
                 <input
                   className={styles.search_input}
                   placeholder='위치 검색'
                   // value={location}
-                  onChange={(event) => {
-                    event.preventDefault();
-                    handleChange(event.target.value);
-                  }}
+                  // onChange={(event) => {
+                  //   event.preventDefault();
+                  //   handleChange(event.target.value);
+                  // }}
                 />
-              </div>
+              </form>
             </div>
           </Paper>
 
@@ -97,6 +101,11 @@ const MainPage = ({ Direct }) => {
                   <h1>버스</h1>
                   <div className={styles.info_rank}>
                     <ul className={styles.rank_list}>
+                      <li className={styles.rank_item}>
+                        <span className={styles.number}>1</span>
+                        <div className={styles.name}>12212</div>
+                        <div className={styles.status}>122%</div>
+                      </li>
                       {nearData &&
                         nearData.bus.map((item, index) => {
                           if (index < 11) {
@@ -121,9 +130,14 @@ const MainPage = ({ Direct }) => {
                   <h1>지하철</h1>
                   <div className={styles.info_rank}>
                     <ul className={styles.rank_list}>
+                      <li className={styles.rank_item}>
+                        <span className={styles.number}>1</span>
+                        <div className={styles.name}>12212</div>
+                        <div className={styles.status}>122%</div>
+                      </li>
                       {nearData &&
                         nearData.subway.map((item, index) => {
-                          if (index < 11) {
+                          if (index < 10) {
                             return (
                               <li key={index} className={styles.rank_item}>
                                 <span className={styles.number}>

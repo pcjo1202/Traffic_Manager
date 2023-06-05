@@ -8,7 +8,7 @@ import StartPage from './pages/StartPage/StartPage';
 function App({ Auth }) {
   //login 상태는 index로 가져갈듯
 
-  const [isLogin, setIsLogin] = useState(null);
+  const [isLogin, setIsLogin] = useState(true); //기본값 null
   const [token, setToken] = useState('');
 
   const location = useLocation();
@@ -24,13 +24,13 @@ function App({ Auth }) {
   }, []);
 
   //로그인 상태확인 후 라우팅
-  useEffect(() => {
-    if (token) {
-      setIsLogin(true);
-    } else {
-      setIsLogin(false);
-    }
-  }, [Auth, token]);
+  // useEffect(() => {
+  //   if (token) {
+  //     setIsLogin(true);
+  //   } else {
+  //     setIsLogin(false);
+  //   }
+  // }, [Auth, token]);
 
   return (
     <>

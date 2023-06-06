@@ -14,7 +14,10 @@ const MyPage = ({ Auth }) => {
   // }, [pwdCheck]);
 
   const handlePwdCheck = (e) => {
-    Auth.getUserInfo(e.target.value);
+    e.preventDefault();
+    const pwd = e.target.firstChild.value;
+    // console.log(pwd);
+    Auth.getUserInfo(pwd);
   };
   return (
     <MainArea>
@@ -36,7 +39,7 @@ const MyPage = ({ Auth }) => {
         </section>
       ) : (
         <div className={styles.check}>
-          <form onChange={handlePwdCheck}>
+          <form onSubmit={handlePwdCheck}>
             <input type='password' placeholder='비밀번호 입력' />
             <input type='submit' value='입력' onSubmit={handlePwdCheck} />
           </form>

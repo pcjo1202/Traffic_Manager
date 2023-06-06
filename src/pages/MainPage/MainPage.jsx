@@ -26,7 +26,6 @@ const MainPage = ({ Direct }) => {
       });
     });
 
-    console.log('헤헤');
     return () => location;
     // Direct.nearby(location.x, location.y);
   }, []);
@@ -101,11 +100,11 @@ const MainPage = ({ Direct }) => {
                   <h1>버스</h1>
                   <div className={styles.info_rank}>
                     <ul className={styles.rank_list}>
-                      <li className={styles.rank_item}>
+                      {/* <li className={styles.rank_item}>
                         <span className={styles.number}>1</span>
                         <div className={styles.name}>12212</div>
                         <div className={styles.status}>122%</div>
-                      </li>
+                      </li> */}
                       {nearData &&
                         nearData.bus.map((item, index) => {
                           if (index < 11) {
@@ -114,7 +113,9 @@ const MainPage = ({ Direct }) => {
                                 <span className={styles.number}>
                                   {index + 1}
                                 </span>
-                                <div className={styles.name}>{item.busNo}</div>
+                                <div
+                                  className={styles.name}
+                                >{`${item.busNo} 번`}</div>
                                 <div className={styles.status}>
                                   {item.traffic}
                                 </div>
@@ -130,11 +131,11 @@ const MainPage = ({ Direct }) => {
                   <h1>지하철</h1>
                   <div className={styles.info_rank}>
                     <ul className={styles.rank_list}>
-                      <li className={styles.rank_item}>
+                      {/* <li className={styles.rank_item}>
                         <span className={styles.number}>1</span>
                         <div className={styles.name}>12212</div>
                         <div className={styles.status}>122%</div>
-                      </li>
+                      </li> */}
                       {nearData &&
                         nearData.subway.map((item, index) => {
                           if (index < 10) {
@@ -144,7 +145,7 @@ const MainPage = ({ Direct }) => {
                                   {index + 1}
                                 </span>
                                 <div className={styles.name}>
-                                  {item.stationName}
+                                  {`${item.stationName}역`}
                                 </div>
                                 <div className={styles.status}>
                                   {item.upline}

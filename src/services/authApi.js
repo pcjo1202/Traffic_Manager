@@ -68,17 +68,28 @@ class AuthApi {
 
   // 세션에 저장되어있는 토큰을 전달하여, 해당 유저에 대한 정보를 가져온다.
   async getUserInfo(pwd) {
-    const url = '/api/users/info';
+    try {
+      const token = localStorage.getItem('authToken');
 
-    const data = {
-      pw: pwd,
-    };
+      const response = await axios({
+        url: 'api/users/info',
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: token,
+        },
+        data: pwd,
+      });
 
-    const response = await axios.get(url, data);
+      const status = response.status;
 
-    console.log(response);
-
-    // return;
+      response.then(console.log);
+      if (status === 200) {
+        console.log('성공');
+      } else if (status === 403) {
+        console.log('토큰 만료');
+      }
+    } catch {}
   }
 }
 

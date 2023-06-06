@@ -15,7 +15,7 @@ const LoginPage = ({ Auth }) => {
   const handleLogin = async (e) => {
     Auth.login(id, pwd);
 
-    navigate('/');
+    navigate('/', true);
   };
 
   return (

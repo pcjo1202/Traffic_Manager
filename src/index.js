@@ -15,6 +15,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ResisterPage from './pages/ResisterPage/ResisterPage';
 import AuthApi from './services/authApi';
 import DirectionsAPI from './services/directionsAPI';
+import SearchPath from './services/testtt';
 
 const Auth = new AuthApi();
 const Direct = new DirectionsAPI();
@@ -22,6 +23,7 @@ const Direct = new DirectionsAPI();
 const router = createBrowserRouter([
   {
     path: '/',
+    // element: <SearchPath />,
     element: <App Auth={Auth} />,
     errorElement: <ErrorPage />,
     children: [
@@ -36,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/directions',
-        element: <Directions />,
+        element: <Directions Direct={Direct} />,
       },
       {
         path: '/mypage',

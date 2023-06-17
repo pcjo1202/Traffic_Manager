@@ -1,0 +1,30 @@
+.SearchBar_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.SearchBar_wrapper .name {
+  font-size: 1.2rem;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border-bottom: 1px solid grey;
+  padding: 0.4rem 1rem;
+}
+
+.searchInput:active {
+  border: 2px solid grey;
+}
+
+.searchInput input {
+  font-size: 1.3rem;
+  border: none;
+  outline: none;
+}

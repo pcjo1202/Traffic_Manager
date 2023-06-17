@@ -78,11 +78,6 @@ const MainPage = ({ Direct }) => {
                 <input
                   className={styles.search_input}
                   placeholder='위치 검색'
-                  // value={location}
-                  // onChange={(event) => {
-                  //   event.preventDefault();
-                  //   handleChange(event.target.value);
-                  // }}
                 />
               </form>
             </div>

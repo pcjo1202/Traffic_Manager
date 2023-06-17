@@ -156,6 +156,7 @@ function SearchPath() {
                   <strong>평균 혼잡도: </strong> {item.info.averageCongestion}%
                 </p>
               </div>
+
               <button onClick={() => handleToggleSubPath(index)}>
                 {visibleIndex === index ? '숨기기' : '자세히 보기'}
               </button>

@@ -9,15 +9,12 @@ import Header from '../../components/Header/Header';
 const MyPage = ({ Auth }) => {
   const [pwdCheck, setPwdCheck] = useState(false);
 
-  // useEffect(() => {
-
-  // }, [pwdCheck]);
-
   const handlePwdCheck = (e) => {
     e.preventDefault();
     const pwd = e.target.firstChild.value;
     // console.log(pwd);
     Auth.getUserInfo(pwd);
+    setPwdCheck(true);
   };
   return (
     <MainArea>

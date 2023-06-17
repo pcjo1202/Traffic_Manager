@@ -1,0 +1,95 @@
+.search_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  /* width: 100%; */
+  height: 100vh;
+  background-color: #d1dfe7;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  overflow: auto;
+}
+
+.searchForm_container {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border-bottom: 2px solid grey;
+}
+
+
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn_box>input {
+  padding: 0.5rem;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+}
+
+/* .result {
+  width: 100%;
+  height: 200px;
+  background-color: blue;
+}
+
+.result .onoff {
+  width: 100px;
+  height: 100px;
+
+  position: absolute;
+  left: -10%;
+  top: 40%;
+}
+
+.active {
+  right: -40%;
+}
+
+.result_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow: auto;
+  width: 100%;
+  height: 100vh;
+}
+
+.result_container .result_box {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  list-style: armenian;
+} */
